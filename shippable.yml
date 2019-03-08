@@ -7,4 +7,4 @@ runtime:
   
 build:
  ci:
-- docker build .
+ - docker build .
