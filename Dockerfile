@@ -1,7 +1,10 @@
 FROM raspbian/stretch
-ENV DEBIAN_FRONTEND=noninteractive
-ENV JAVA_OPTS="-Xms128m -Xmx10g"  
-RUN free -h && apt-get update && apt-get upgrade -y && apt-get install -y build-essential g++ openjdk-8-jdk pkg-config python unzip zip zlib1g-dev
+FROM ubuntu:19.10
+#ENV DEBIAN_FRONTEND=noninteractive
+#ENV JAVA_OPTS="-Xms128m -Xmx10g"
+#ENTRYPOINT ["/bin/bash"]
+RUN echo hola  
+RUN free -h && apt-get update && apt-get upgrade -y && apt-get install -y build-essential g++ openjdk-8-jdk pkg-config python unzip zip zlib1g-dev wget
 RUN cd /tmp && mkdir bazel && cd bazel && \
     wget https://github.com/bazelbuild/bazel/releases/download/0.23.1/bazel-0.23.1-dist.zip && \
     unzip bazel-0.23.1-dist.zip && rm bazel-0.23.1-dist.zip && chmod +x ./compile.sh && \
